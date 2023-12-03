@@ -1,13 +1,26 @@
+import json
 import os
 import time
 from datetime import datetime
 from PIL import ImageGrab
 from diff_image import calculate_similarity
 
-# 時間間隔(秒)
-interval = 3
-# 類似度の閾値
-limit_similarity_val = 95
+# デフォルトの設定
+default_interval = 3
+default_limit_similarity_val = 95
+
+# 設定ファイルの読み込み
+def load_config():
+    config_path = 'config.json'
+    if os.path.exists(config_path):
+        with open(config_path, 'r') as file:
+            return json.load(file)
+    return {}
+
+config = load_config()
+interval = config.get('interval', default_interval)
+limit_similarity_val = config.get('limit_similarity_val', default_limit_similarity_val)
+
 
 def create_directory():
     # 現在の年月日時分を取得
