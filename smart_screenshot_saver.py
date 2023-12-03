@@ -4,6 +4,11 @@ from datetime import datetime
 from PIL import ImageGrab
 from diff_image import calculate_similarity
 
+# 時間間隔(秒)
+interval = 3
+# 類似度の閾値
+limit_similarity_val = 95
+
 def create_directory():
     # 現在の年月日時分を取得
     date_str = datetime.now().strftime("%Y%m%d%H%M")
@@ -35,10 +40,10 @@ def main():
     while True:
         current_screenshot = ImageGrab.grab()
         similarity_val = calculate_similarity(latest_screenshot, current_screenshot)
-        if latest_screenshot is not None and similarity_val < 95:
+        if latest_screenshot is not None and similarity_val < limit_similarity_val:
             latest_screenshot = current_screenshot
             save_screenshot(directory)
-        time.sleep(3)
+        time.sleep(interval)
 
 
 if __name__ == "__main__":
