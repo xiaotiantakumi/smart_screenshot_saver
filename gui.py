@@ -44,8 +44,8 @@ class ScreenshotSaverApp(QWidget):
         self.setLayout(layout)
 
     def start_screenshot_saver(self):
-        QMessageBox.information(self, 'Info', 'スクリーンショットの取得を開始しました。')
         subprocess.Popen(['python', 'smart_screenshot_saver.py'], cwd=os.getcwd())
+        QMessageBox.information(self, 'Info', 'スクリーンショットの取得を開始しました。')
 
     def stop_screenshot_saver(self):
         subprocess.run(['bash', 'stop_smart_screenshot_saver.sh'], cwd=os.getcwd())
