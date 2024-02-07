@@ -2,6 +2,35 @@
 
 Smart Screenshot Saver は、デスクトップのスクリーンショットを自動的に保存し、前回のスクリーンショットとの類似度に基づいて新しいスクリーンショットを取得する Python スクリプトです。
 
+# Getting Started
+
+## セットアップ
+
+このプロジェクトを使用するには、以下の手順に従ってください。
+
+1. リポジトリをクローンします。
+
+   ```
+   git clone https://github.com/xiaotiantakumi/smart_screenshot_saver.git
+   cd smart_screenshot_saver
+   ```
+
+2. 必要な依存関係をインストールします。
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+## 使用方法
+
+```bash
+# venv を有効化する
+source .venv/bin/activate
+
+# gui.py を実行する
+python gui.py
+```
+
 ## 機能
 
 ### 定期的にスクリーンショットを取得し、output ディレクトリに保存します。
@@ -25,37 +54,6 @@ interval = 3
 
 ```
 limit_similarity_val = 95
-```
-
-## セットアップ
-
-このプロジェクトを使用するには、以下の手順に従ってください。
-
-1. リポジトリをクローンします。
-
-   ```
-   git clone https://github.com/xiaotiantakumi/smart_screenshot_saver.git
-   cd smart_screenshot_saver
-   ```
-
-2. 必要な依存関係をインストールします。
-
-   ```
-   pip install -r requirements.txt
-   ```
-
-## 使用方法
-
-スクリーンショットの自動保存を開始するには、以下のコマンドを実行します。
-
-```bash
-bash smart_screenshot_saver.sh
-```
-
-スクリプトを停止するには、以下のコマンドを実行します。
-
-```bash
-bash smart_screenshot_saver.sh stop
 ```
 
 ## 依存関係
